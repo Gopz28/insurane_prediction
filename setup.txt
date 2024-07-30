@@ -1,0 +1,63 @@
+1. Create a Virtual Environment
+Use Python’s built-in venv module to create a virtual environment. This avoids the restrictions you’re seeing. Here’s how:
+
+cmd:
+python3 -m venv myenv
+Replace myenv with the name you prefer for your virtual environment.
+
+2. Activate the Virtual Environment
+On Windows cmd:
+
+myenv\Scripts\activate
+
+
+On macOS/Linux cmd:
+
+source myenv/bin/activate
+
+3. Install Jupyter and Other Packages
+With the virtual environment activated, you can now install packages using pip without restrictions:
+
+cmd:
+pip install --upgrade pip  # Upgrade pip to the latest version
+pip install jupyter
+
+4. Install the IPython Kernel
+To make the virtual environment available as a Jupyter kernel, install the IPython kernel:
+
+cmd:
+pip install ipykernel
+python -m ipykernel install --user --name=myenv --display-name "Python (myenv)"
+
+5. Launch Jupyter Notebook
+Start Jupyter Notebook from within the virtual environment:
+cmd:
+
+jupyter notebook
+
+6. Deactivate the Virtual Environment
+When you're finished, deactivate the virtual environment by running:
+
+cmd:
+deactivate
+
+Alternative: Using pipx for Application Installation
+If you prefer or need to install Jupyter as a system-wide application with isolation, you can use pipx, which handles applications and their dependencies in isolated environments. First, ensure pipx is installed:
+
+cmd:
+
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+Then install Jupyter using pipx:
+
+cmd:
+
+pipx install jupyter
+
+Summary
+Create and activate a virtual environment using venv.
+Install Jupyter and other necessary packages inside the virtual environment.
+Set up the IPython kernel to make the virtual environment available in Jupyter.
+Launch Jupyter Notebook from within the virtual environment.
+Following these steps should allow you to work around the system package management restrictions and manage your Python environments and dependencies effectively.
